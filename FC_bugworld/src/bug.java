@@ -104,6 +104,6 @@ public class bug {
 	public int getUniqueID() {
 		return this.uniqueID;
 	}
-	
+
 }
 

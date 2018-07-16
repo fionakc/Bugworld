@@ -18,6 +18,7 @@ public class main {
 		
 		bug2.setName("Dave");
 		bug2.toString();
+		
 	}
 
 }
