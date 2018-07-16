@@ -25,6 +25,9 @@ public class main {
 		
 		bug3.move(-10,5);
 		bug3.toString();
+					
+		bug1.bugMoveTest();
+		
 		
 		ArrayList<bug> bugs=new ArrayList<bug>() {
 		};
@@ -33,6 +36,9 @@ public class main {
 		bugs.add(bug3);
 		bugs.add(bug4);
 		System.out.println("Size of ArrayList bugs: "+bugs.size());
+		
+		
+		
 	}
 
 	

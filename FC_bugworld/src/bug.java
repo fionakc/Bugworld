@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.lang.Math;
 
 public class bug {
  //variables
@@ -9,6 +10,7 @@ public class bug {
 	private  int ypos;
 	private  int energy;
 	private  int uniqueID;
+	private Scanner sc;
 	
 	//default constructor
 	public bug() {
@@ -94,38 +96,63 @@ public class bug {
 	//require user input to set attributes
 	public void setAttributes() {
 		System.out.print("What kind of bug is it? ");
-		Scanner sc=new Scanner (System.in);
+		this.sc=new Scanner (System.in);
 		this.species=sc.next();
 		
 		System.out.print("What is the bug's name? ");
-		sc=new Scanner (System.in);
+		this.sc=new Scanner (System.in);
 		this.name=sc.next();
 		
 		System.out.print("What is the bug's symbol? ");
-		sc=new Scanner (System.in);
+		this.sc=new Scanner (System.in);
 		this.symbol=sc.next().trim().charAt(0);
 		
 		System.out.print("What is the bug's horizontal position? ");
-		sc=new Scanner (System.in);
+		this.sc=new Scanner (System.in);
 		this.xpos=sc.nextInt();
 		
 		System.out.print("What is the bug's vertical position? ");
-		sc=new Scanner (System.in);
+		this.sc=new Scanner (System.in);
 		this.ypos=sc.nextInt();
 		
 		System.out.print("What is the bug's energy? ");
-		sc=new Scanner (System.in);
+		this.sc=new Scanner (System.in);
 		this.energy=sc.nextInt();
 		
 		System.out.print("What is the bug's unique ID? ");
-		sc=new Scanner (System.in);
+		this.sc=new Scanner (System.in);
 		this.uniqueID=sc.nextInt();
-	}
+		
+		System.out.println();
+		
+	} //end setAttributes
 	
 	//move bug in one of four directions
 	public void move(int xMove, int yMove) {
 		this.xpos+=xMove;
 		this.ypos+=yMove;
 	}
-}
+	
+
+	public void bugMoveTest() {
+		for(int i=0;i<100;i++) {
+			int direction = (int)(Math.random()*4);
+			switch (direction) {			
+				case 1: move(1,0);
+						break;
+				case 2:	move(0,1);
+						break;
+				case 3: move(-1,0);
+						break;
+				case 4: move(0,-1);
+						break;
+			
+			} //end switch
+			System.out.print ("x: "+xpos+",y: "+ypos+"|");
+		} //end loop
+		System.out.println();
+	} //end bugMoveTest
+	
+	
+} //end class
 
