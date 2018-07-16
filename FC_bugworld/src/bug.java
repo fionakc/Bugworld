@@ -122,5 +122,10 @@ public class bug {
 		this.uniqueID=sc.nextInt();
 	}
 	
+	//move bug in one of four directions
+	public void move(int xMove, int yMove) {
+		this.xpos+=xMove;
+		this.ypos+=yMove;
+	}
 }
 
