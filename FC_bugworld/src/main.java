@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 
 public class main {
 
@@ -19,8 +20,16 @@ public class main {
 		//bug2.setName("Dave");
 		//bug2.toString();
 		
-		bug2.setAttributes();
+		//bug2.setAttributes();
 		bug2.toText();
+		
+		ArrayList<bug> bugs=new ArrayList<bug>() {
+		};
+		bugs.add(bug1);
+		bugs.add(bug2);
+		bugs.add(bug3);
+		bugs.add(bug4);
+		System.out.println("Size of ArrayList bugs: "+bugs.size());
 	}
 
 }
