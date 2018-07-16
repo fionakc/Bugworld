@@ -16,9 +16,11 @@ public class main {
 		bug bug4=new bug("moth","Carl",'c',25,36,4,4);
 		bug4.toString();
 		
-		bug2.setName("Dave");
-		bug2.toString();
+		//bug2.setName("Dave");
+		//bug2.toString();
 		
+		bug2.setAttributes();
+		bug2.toText();
 	}
 
 }

@@ -1,4 +1,4 @@
-
+import java.util.Scanner;
 
 public class bug {
  //variables
@@ -57,53 +57,70 @@ public class bug {
 	
 	//getters and setters for attributes
 	public void setSpecies (String sp) {
-		this.species=sp;
-	}	
+		this.species=sp;}	
 	public String getSpecies () {
-		return this.species;
-	}
+		return this.species;}
 	
 	public void setName (String n) {
-		this.name=n;
-	}	
+		this.name=n;}	
 	public String getName () {
-		return this.name;
-	}
+		return this.name;}
 	
 	public void setSymbol(char c) {
-		this.symbol=c;
-	}
+		this.symbol=c;}
 	public char getSymbol() {
-		return this.symbol;
-	}
+		return this.symbol;}
 	
 	public void setXpos(int x) {
-		this.xpos=x;
-	}
+		this.xpos=x;}
 	public int getXpos() {
-		return this.xpos;
-	}
+		return this.xpos;}
 	
 	public void setYpos(int y) {
-		this.ypos=y;
-	}
+		this.ypos=y;}
 	public int getYpos() {
-		return this.ypos;
-	}
+		return this.ypos;}
 	
 	public void setEnergy(int e) {
-		this.energy=e;
-	}
+		this.energy=e;}
 	public int getEnergy() {
-		return this.energy;
-	}
+		return this.energy;}
 	
 	public void setUniqueID(int u) {
-		this.uniqueID=u;
-	}
+		this.uniqueID=u;}
 	public int getUniqueID() {
-		return this.uniqueID;
-	}
+		return this.uniqueID;}
 
+	//require user input to set attributes
+	public void setAttributes() {
+		System.out.print("What kind of bug is it? ");
+		Scanner sc=new Scanner (System.in);
+		this.species=sc.next();
+		
+		System.out.print("What is the bug's name? ");
+		sc=new Scanner (System.in);
+		this.name=sc.next();
+		
+		System.out.print("What is the bug's symbol? ");
+		sc=new Scanner (System.in);
+		this.symbol=sc.next().trim().charAt(0);
+		
+		System.out.print("What is the bug's horizontal position? ");
+		sc=new Scanner (System.in);
+		this.xpos=sc.nextInt();
+		
+		System.out.print("What is the bug's vertical position? ");
+		sc=new Scanner (System.in);
+		this.ypos=sc.nextInt();
+		
+		System.out.print("What is the bug's energy? ");
+		sc=new Scanner (System.in);
+		this.energy=sc.nextInt();
+		
+		System.out.print("What is the bug's unique ID? ");
+		sc=new Scanner (System.in);
+		this.uniqueID=sc.nextInt();
+	}
+	
 }
 
