@@ -1,5 +1,6 @@
 import java.util.Scanner;
 import java.lang.Math;
+import java.util.Random;
 
 public class bug {
  //variables
@@ -14,7 +15,7 @@ public class bug {
 	
 	//default constructor
 	public bug() {
-		this.species = "caterpillar";
+		this.species = "bug";
 		this.name = "Allen";
 		this.symbol = 'a';
 		this.xpos = 20;
@@ -23,6 +24,20 @@ public class bug {
 		this.uniqueID = 1;
 		
 	}
+	
+	//constructor with specified positions
+	public bug(int x, int y) {
+		this.species = "bug";
+		this.name = "Allan";
+		Random r = new Random();
+		this.symbol = (char)(r.nextInt(26) + 'a');; //generates random letter for symbol
+		this.xpos = x;
+		this.ypos = y;
+		this.energy = (int)((Math.random()*2)+1);
+		this.uniqueID = 1;
+		
+	}
+	
 	
 	//constructor with user input
 	public bug (String sp, String n, char sy, int x, int y, int e, int u) {
@@ -38,6 +53,7 @@ public class bug {
 	//toString, print summary of info
 	public String toString() {
 		System.out.println("The bug of species "+this.species+" has the name "+this.name+
+				" and the symbol "+this.symbol+
 				" and is located at "+this.xpos+","+this.ypos);
 		System.out.println("");
 		return null;
@@ -148,7 +164,7 @@ public class bug {
 						break;
 			
 			} //end switch
-			System.out.print ("x: "+xpos+",y: "+ypos+"|");
+			System.out.print ("x:"+xpos+",y:"+ypos+"|");
 		} //end loop
 		System.out.println();
 	} //end bugMoveTest
