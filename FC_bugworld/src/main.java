@@ -36,7 +36,7 @@ public class main {
 				} //end if
 			} //end for bugs loop
 			bug bugTemp=new bug(xPos,yPos);
-			System.out.println(xPos+" "+yPos);
+			//System.out.println(xPos+" "+yPos);
 		 
 			bugs.add(bugTemp);
 		}//end for number of bugs loop
@@ -45,6 +45,11 @@ public class main {
 		
 		
 		startWorld.drawWorld(bugs);
+		System.out.println("draw");
+		bugs=startWorld.updateWorld(bugs);
+		System.out.println("update");
+		startWorld.drawWorld(bugs);
+		System.out.println("new");
 		
 	}
 

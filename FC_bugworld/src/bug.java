@@ -148,8 +148,32 @@ public class bug {
 		this.xpos+=xMove;
 		this.ypos+=yMove;
 	}
+	 //move bug in random direction
+	public void bugMove() {
+		int direction = (int)(Math.random()*4);
+		switch (direction) {			
+			case 1: move(1,0);
+					break;
+			case 2:	move(0,1);
+					break;
+			case 3: move(-1,0);
+					break;
+			case 4: move(0,-1);
+					break;		
+		} //end switch
+		
+	} //end bugMove
 	
-
+	public boolean checkCollide(int bugX, int bugY, int objX, int objY) {
+		if(bugX==objX && bugY==objY) {
+			return true; //if collision, return true
+		}else {
+			return false; //if no collision, return false
+		}
+		
+	} //end checkCollide
+	
+	//test bug movement 100 times in random direction
 	public void bugMoveTest() {
 		for(int i=0;i<100;i++) {
 			int direction = (int)(Math.random()*4);
