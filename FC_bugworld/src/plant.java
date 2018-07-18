@@ -21,9 +21,15 @@ public class plant {
 	public int getXpos() {
 		return xPos;
 	}
+	public void setXpos(int x) {
+		this.xPos=x;
+	}
 	
 	public int getYpos() {
 		return yPos;
+	}
+	public void setYpos(int y) {
+		this.yPos=y;
 	}
 	
 	public int getAge() {
