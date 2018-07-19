@@ -15,7 +15,7 @@ public class main {
 		
 		startWorld.draw();
 		System.out.println("draw");
-		startWorld.updateWorld();
+		startWorld.update();
 		System.out.println("update");
 		startWorld.draw();
 		System.out.println("new");

@@ -15,7 +15,9 @@
 	} //end constructor
 	
 	public void ageUp() {
-		this.age++;
+		if(this.age!=9) {
+			this.age++;
+		}
 	}
 	
 	public char getSymbol() {		
