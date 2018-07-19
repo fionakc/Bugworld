@@ -2,7 +2,7 @@ import java.util.Scanner;
 import java.lang.Math;
 import java.util.Random;
 
-public class bug {
+public class bug extends item{
  //variables
 	private String species;
 	private  String name;
@@ -89,15 +89,15 @@ public class bug {
 	public char getSymbol() {
 		return this.symbol;}
 	
-	public void setXpos(int x) {
-		this.xpos=x;}
-	public int getXpos() {
-		return this.xpos;}
+//	public void setXpos(int x) {
+//		this.xpos=x;}
+//	public int getXpos() {
+//		return this.xpos;}
 	
-	public void setYpos(int y) {
-		this.ypos=y;}
-	public int getYpos() {
-		return this.ypos;}
+//	public void setYpos(int y) {
+//		this.ypos=y;}
+//	public int getYpos() {
+//		return this.ypos;}
 	
 	public void setEnergy(int e) {
 		this.energy=e;}
@@ -109,39 +109,6 @@ public class bug {
 	public int getUniqueID() {
 		return this.uniqueID;}
 
-	//require user input to set attributes
-	public void setAttributes() {
-		System.out.print("What kind of bug is it? ");
-		this.sc=new Scanner (System.in);
-		this.species=sc.next();
-		
-		System.out.print("What is the bug's name? ");
-		this.sc=new Scanner (System.in);
-		this.name=sc.next();
-		
-		System.out.print("What is the bug's symbol? ");
-		this.sc=new Scanner (System.in);
-		this.symbol=sc.next().trim().charAt(0);
-		
-		System.out.print("What is the bug's horizontal position? ");
-		this.sc=new Scanner (System.in);
-		this.xpos=sc.nextInt();
-		
-		System.out.print("What is the bug's vertical position? ");
-		this.sc=new Scanner (System.in);
-		this.ypos=sc.nextInt();
-		
-		System.out.print("What is the bug's energy? ");
-		this.sc=new Scanner (System.in);
-		this.energy=sc.nextInt();
-		
-		System.out.print("What is the bug's unique ID? ");
-		this.sc=new Scanner (System.in);
-		this.uniqueID=sc.nextInt();
-		
-		System.out.println();
-		
-	} //end setAttributes
 	
 	//move bug in one of four directions
 	public void move(int xMove, int yMove) {
@@ -164,34 +131,16 @@ public class bug {
 		
 	} //end bugMove
 	
-	public boolean checkCollide(int bugX, int bugY, int objX, int objY) {
-		if(bugX==objX && bugY==objY) {
-			return true; //if collision, return true
-		}else {
-			return false; //if no collision, return false
-		}
-		
-	} //end checkCollide
+//	public boolean checkCollide(int objX, int objY) {
+//		if(this.xpos==objX && this.ypos==objY) {
+//			return true; //if collision, return true
+//		}else {
+//			return false; //if no collision, return false
+//		}
+//		
+//	} //end checkCollide
 	
-	//test bug movement 100 times in random direction
-	public void bugMoveTest() {
-		for(int i=0;i<100;i++) {
-			int direction = (int)(Math.random()*4);
-			switch (direction) {			
-				case 1: move(1,0);
-						break;
-				case 2:	move(0,1);
-						break;
-				case 3: move(-1,0);
-						break;
-				case 4: move(0,-1);
-						break;
-			
-			} //end switch
-			System.out.print ("x:"+xpos+",y:"+ypos+"|");
-		} //end loop
-		System.out.println();
-	} //end bugMoveTest
+	
 	
 	
 } //end class

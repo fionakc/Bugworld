@@ -45,11 +45,11 @@ public class main {
 		//System.out.println("Size of ArrayList bugs: "+bugs.size());
 		
 		
-		startWorld.drawWorld();
+		startWorld.draw();
 		System.out.println("draw");
 		startWorld.updateWorld();
 		System.out.println("update");
-		startWorld.drawWorld();
+		startWorld.draw();
 		System.out.println("new");
 		
 	}
