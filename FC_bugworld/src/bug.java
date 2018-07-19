@@ -2,13 +2,14 @@ import java.util.Scanner;
 import java.lang.Math;
 import java.util.Random;
 
-public class bug extends item{
+//public class bug extends item{
+	public class bug{
  //variables
 	private String species;
 	private  String name;
 	private  char symbol;
-	private  int xpos;
-	private  int ypos;
+	private  int Xpos;
+	private  int Ypos;
 	private  int energy;
 	private  int uniqueID;
 	private Scanner sc;
@@ -18,8 +19,8 @@ public class bug extends item{
 		this.species = "bug";
 		this.name = "Allen";
 		this.symbol = 'a';
-		this.xpos = 20;
-		this.ypos = 30;
+		this.Xpos = 20;
+		this.Ypos = 30;
 		this.energy = 2;
 		this.uniqueID = 1;
 		
@@ -31,8 +32,8 @@ public class bug extends item{
 		this.name = "Allan";
 		Random r = new Random();
 		this.symbol = (char)(r.nextInt(26) + 'a');; //generates random letter for symbol
-		this.xpos = x;
-		this.ypos = y;
+		this.Xpos = x;
+		this.Ypos = y;
 		this.energy = (int)((Math.random()*2)+1);
 		this.uniqueID = 1;
 		
@@ -44,8 +45,8 @@ public class bug extends item{
 		this.species = sp;
 		this.name = n;
 		this.symbol = sy;
-		this.xpos = x;
-		this.ypos = y;
+		this.Xpos = x;
+		this.Ypos = y;
 		this.energy = e;
 		this.uniqueID = u;
 	}
@@ -54,7 +55,7 @@ public class bug extends item{
 	public String toString() {
 		System.out.println("The bug of species "+this.species+" has the name "+this.name+
 				" and the symbol "+this.symbol+
-				" and is located at "+this.xpos+","+this.ypos);
+				" and is located at "+this.Xpos+","+this.Ypos);
 		System.out.println("");
 		return null;
 	}
@@ -66,8 +67,8 @@ public class bug extends item{
 		System.out.println("Species: "+this.species);
 		System.out.println("Name: "+this.name); 
 		System.out.println("Symbol: "+this.symbol);
-		System.out.println("X position: "+this.xpos);
-		System.out.println("Y position: "+this.ypos);
+		System.out.println("X position: "+this.Xpos);
+		System.out.println("Y position: "+this.Ypos);
 		System.out.println("Energy: "+this.energy);
 		System.out.println("Unique ID: "+this.uniqueID);
 		System.out.println("");
@@ -89,15 +90,15 @@ public class bug extends item{
 	public char getSymbol() {
 		return this.symbol;}
 	
-//	public void setXpos(int x) {
-//		this.xpos=x;}
-//	public int getXpos() {
-//		return this.xpos;}
+	public void setXpos(int x) {
+		this.Xpos=x;}
+	public int getXpos() {
+		return this.Xpos;}
 	
-//	public void setYpos(int y) {
-//		this.ypos=y;}
-//	public int getYpos() {
-//		return this.ypos;}
+	public void setYpos(int y) {
+		this.Ypos=y;}
+	public int getYpos() {
+		return this.Ypos;}
 	
 	public void setEnergy(int e) {
 		this.energy=e;}
@@ -112,8 +113,8 @@ public class bug extends item{
 	
 	//move bug in one of four directions
 	public void move(int xMove, int yMove) {
-		this.xpos+=xMove;
-		this.ypos+=yMove;
+		this.Xpos+=xMove;
+		this.Ypos+=yMove;
 	}
 	 //move bug in random direction
 	public void bugMove() {
@@ -131,14 +132,14 @@ public class bug extends item{
 		
 	} //end bugMove
 	
-//	public boolean checkCollide(int objX, int objY) {
-//		if(this.xpos==objX && this.ypos==objY) {
-//			return true; //if collision, return true
-//		}else {
-//			return false; //if no collision, return false
-//		}
-//		
-//	} //end checkCollide
+	public boolean checkCollide(int objX, int objY) {
+		if(this.Xpos==objX && this.Ypos==objY) {
+			return true; //if collision, return true
+		}else {
+			return false; //if no collision, return false
+		}
+		
+	} //end checkCollide
 	
 	
 	

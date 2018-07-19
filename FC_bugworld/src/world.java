@@ -3,12 +3,12 @@ import java.util.ArrayList;
 public class world {
 	//variables
 	private  final int worldHeighty = 10;
-	private  final int worldWidthx = 40;
+	private  final int worldWidthx = 20;
 	private ArrayList<bug> bugList=new ArrayList<bug>();
 	private ArrayList<plant> plantList=new ArrayList<plant>();
 	//private ArrayList<generalObject> allObjects = new ArrayList<generalObject>();
-	private static int numberOfBugs = 10;
-	private static int numberOfPlants = 5;
+	private static int numberOfBugs = 5;
+	private static int numberOfPlants = 3;
 	private String [][] field = new String [worldHeighty][worldWidthx];
 	
 	//constructor
@@ -17,58 +17,16 @@ public class world {
 		//initialising the field array to empty spaces
 		for(int y=0;y<worldHeighty;y++) {
 			for(int x=0;x<worldWidthx;x++) {
-				field[y][x]=" ";
+				field[y][x]=".";
 			} //end x loop
 			
 		} //end y loop
 			
+		
 	} //end constructor
 	
 	public void populate() {
-	//	int xFirst = 2+(int)(Math.random()*(this.worldWidthx-2));
-	//	int yFirst = 2+(int)(Math.random()*(this.worldHeighty-2));
-		
-		//initialise some data into plantList
-	//	plant plantFirst = new plant(xFirst,yFirst);
-	//	plantList.add(plantFirst);
-		
-	//	for(int i=0;i<this.numberOfPlants-1;i++) {
-	//		int xStart = 2+(int)(Math.random()*(this.worldWidthx-2));
-	//		int yStart = 2+(int)(Math.random()*(this.worldHeighty-2));
-	//		plant plantTemp = new plant(xStart,yStart);
-	//		boolean collide = true;
-	//		System.out.println("err1");
-	//		while(collide) { //while there is a collision
-	//			collide=false;
-	//			System.out.println("err2");	
-	//			for(int n=0;n<this.plantList.size();n++) { //check through each arraylist element
-	//				System.out.println("err3");
-	//				int xVal=this.plantList.get(n).getXpos(); //extract values
-	//				int yVal=this.plantList.get(n).getYpos();
-	//				//collide = plantTemp.checkCollide(xStart,yStart,xVal,yVal); //check for collision
-	//				if(xStart==xVal && yStart == yVal) {
-					
-	//				System.out.println("err4");
-					//if(collide) { //if collision 
-	//					System.out.println("err5");
-	//					xStart = 2+(int)(Math.random()*(this.worldWidthx-2)); //reset values
-	//					yStart = 2+(int)(Math.random()*(this.worldHeighty-2));
-	//					collide=true;
-	//					break; //don't check rest of arraylist
-	//				} //end if compare
-	//				System.out.println("err6");
-	//			} //end n for loop
-	//			System.out.println("err7");
-	//			plantTemp.setXpos(xStart); //assign latest values to temp
-	//			plantTemp.setYpos(yStart);
-				//break;
-	//		} //end while
-	//		System.out.println("err8");
-	//		this.plantList.add(plantTemp); //add temp into arraylist
-	//		System.out.println("Plant at "+xStart+" "+yStart+" of age "+plantTemp.getAge());
-	//	} //end for numberOfPlants
-		
-	//	System.out.println("err9");
+	
 		
 	//	  fill arraylist with plants
 				for(int i=0;i<this.numberOfPlants;i++) { //populate arraylist with plants, inside world size
@@ -123,19 +81,15 @@ public class world {
 				} //end if
 			} //end for bugs arraylist loop
 			
-			
-			
-			//System.out.println(xPos+" "+yPos);
-			
 			bug bugTemp=new bug(xPos,yPos);
-			//char sym=(char)bugTemp.getSymbol();
-			System.out.println("Bug at "+xPos+" "+yPos);
+
 			this.bugList.add(bugTemp);
-			//generalObject objTemp=new generalObject(xPos,yPos,sym);
-			//this.allObjects.add(objTemp);
+
 			
 		}//end for number of bugs loop
 	
+
+		
 	} //end populate
 	
 
@@ -166,23 +120,26 @@ public class world {
 		for (int i=0;i<this.bugList.size();i++) {	
 			
 			int xValue=this.bugList.get(i).getXpos(); //extract values
-			System.out.println(xValue);
+			//System.out.println(xValue);
 			int yValue=this.bugList.get(i).getYpos();
-			System.out.println(yValue);
+			//System.out.println(yValue);
 			String symbol = String.valueOf(this.bugList.get(i).getSymbol());
-			System.out.println(symbol);
+			//System.out.println(symbol);
 			field[yValue][xValue]=symbol;
-			System.out.println(field[yValue][xValue]);			
+			//System.out.println(field[yValue][xValue]);			
 		} //end draw bug for loop
 									
 		//draw the plants - assume no collisions
 		for (int i=0;i<this.plantList.size();i++) {	
 					
 			int xVal=this.plantList.get(i).getXpos(); //extract values
+			//System.out.println(xVal);
 			int yVal=this.plantList.get(i).getYpos();
-			String symbol = String.valueOf(this.plantList.get(i).getSymbol());			
+			//System.out.println(yVal);
+			String symbol = String.valueOf(this.plantList.get(i).getSymbol());
+			//System.out.println(symbol);
 			field[yVal][xVal]=symbol;
-								
+			//System.out.println(field[yVal][xVal]);					
 		} //end draw plant for loop			
 				
 		for(int y=0;y<worldHeighty;y++) {
@@ -307,7 +264,9 @@ public class world {
 	
 	//----------------------------------------------------------
 	
-	private boolean detectCollideAll(item itemTemp) {
+	private boolean detectCollideAll(int x, int y) {
+		int xVal = x;
+		int yVal = y;
 		
 		//boolean collides=true;
 		//while(collides) {
@@ -317,14 +276,14 @@ public class world {
 			if(!collides) {
 				
 				//collides with sides
-				if(itemTemp.getXpos()==0 || itemTemp.getXpos()==worldWidthx-1) {
+				if(xVal==0 || xVal==worldWidthx-1) {
 					collides=true;
-					break;
+					//break;
 				}
 				//collides with top and bottom
-				if(itemTemp.getYpos()==0 || itemTemp.getYpos()==worldHeighty-1) {
+				if(yVal==0 || yVal==worldHeighty-1) {
 					collides=true;
-					break;
+					//break;
 				}	
 				
 			} //end if !collides walls
@@ -333,8 +292,11 @@ public class world {
 			//check if collides with plants
 			if(!collides) {
 				for (int i=0;i<this.plantList.size();i++) {
-					collides=itemTemp.checkCollide(this.plantList.get(i).getXpos(), this.plantList.get(i).getYpos());
-					break;
+					//collides=itemTemp.checkCollide(this.plantList.get(i).getXpos(), this.plantList.get(i).getYpos());
+					if(xVal==this.plantList.get(i).getXpos() && yVal==this.plantList.get(i).getYpos()) {
+						collides=true;
+						break;
+					} //end if check
 				} //end for plantList
 				
 			} //end if !collides plants
@@ -342,8 +304,11 @@ public class world {
 			//check if collides with bugs
 			if(!collides) {
 				for (int i=0;i<this.bugList.size();i++) {
-					collides=itemTemp.checkCollide(this.bugList.get(i).getXpos(), this.bugList.get(i).getYpos());
-					break;
+					//collides=itemTemp.checkCollide(this.bugList.get(i).getXpos(), this.bugList.get(i).getYpos());
+					if(xVal==this.bugList.get(i).getXpos() && yVal==this.bugList.get(i).getYpos()) {
+						collides=true;
+						break;
+					} //end if check
 				} //end for bugList
 				
 			} //end if !collides bugs
